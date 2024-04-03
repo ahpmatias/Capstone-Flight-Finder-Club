@@ -9,16 +9,10 @@ sheety = DataManager()
 tequila = FlightSearch()
 
 sheety.get_data()
-sheety.get_city_list()
 
 tequila_header = {
+    "Content-Type": "application/json",
     'apikey': tequila.tequila_api_key
 }
 
-tequila_params = {
-    'term': sheety.city_list[0]
-}
-
-tequila_data = tequila.get_data(tequila_params, tequila_header)
-
-print(tequila_data['locations'][0]['code'])
+sheety.update_iata_codes(tequila_header, tequila)
