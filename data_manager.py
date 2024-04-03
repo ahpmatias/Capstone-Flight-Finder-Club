@@ -1,5 +1,5 @@
 import requests
-from flight_search import FlightSearch
+import os
 
 
 class DataManager:
@@ -9,9 +9,10 @@ class DataManager:
         self.sheety_get_response = None
         self.city_list = None
         self.sheety_data = None
-        self.sheety_user = 'ahpmatias'
-        self.sheety_password = 'capstoneday40'
-        self.sheety_endpoint = 'https://api.sheety.co/eff378423459742ece3e9cb2e57e9dd5/flightDeals/prices'
+        self.sheety_user = os.environ.get('SHEETY_USER')
+        self.sheety_password = os.environ.get('SHEETY_PASSWORD')
+        sheety_id = os.environ.get('SHEETY_ID')
+        self.sheety_endpoint = f'https://api.sheety.co/{sheety_id}/flightDeals/prices'
 
     def get_data(self):
         self.sheety_get_response = requests.get(url=self.sheety_endpoint)
