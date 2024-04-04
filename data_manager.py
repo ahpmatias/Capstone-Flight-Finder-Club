@@ -12,7 +12,7 @@ class DataManager:
         self.sheety_user = os.environ.get('SHEETY_USER')
         self.sheety_password = os.environ.get('SHEETY_PASSWORD')
         sheety_id = os.environ.get('SHEETY_ID')
-        self.sheety_endpoint = 'https://api.sheety.co/eff378423459742ece3e9cb2e57e9dd5/flightDeals/prices'
+        self.sheety_endpoint = f'https://api.sheety.co/{sheety_id}/flightDeals/prices'
         self.cities = self.get_city_list()
     def get_sheety_data(self):
         self.sheety_get_response = requests.get(url=self.sheety_endpoint)
