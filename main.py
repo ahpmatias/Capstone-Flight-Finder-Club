@@ -5,6 +5,7 @@ from data_manager import DataManager
 from flight_search import FlightSearch
 from datetime import datetime, timedelta
 from flight_data import FlightData
+from twilio.rest import Client
 
 sheety = DataManager()
 tequila1 = FlightSearch()
@@ -47,3 +48,4 @@ for num in range(0, len(sheety.cities)):
     min_price = tequila2.get_min_price_data(flights_data)
     city_to = flights_data['data'][0]['cityTo']
     print(f'{city_to}: ${min_price}')
+
